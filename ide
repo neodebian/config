@@ -1,4 +1,3 @@
-#!/bin/fish
+#!/usr/bin/fish
 tmux split-window -h -p 40  
 tmux split-window -v
-

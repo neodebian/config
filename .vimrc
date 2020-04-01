@@ -1,5 +1,7 @@
 set runtimepath+=~/.vim_runtime
-
+set nocompatible
+filetype plugin on
+syntax on
 source ~/.vim_runtime/vimrcs/basic.vim
 source ~/.vim_runtime/vimrcs/filetypes.vim
 source ~/.vim_runtime/vimrcs/plugins_config.vim
@@ -18,6 +20,7 @@ catch
 endtry
 
 call plug#begin('~/.vim/plugged')
+"plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/vim-easy-align'
 Plug 'tmhedberg/SimpylFold'

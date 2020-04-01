@@ -31,8 +31,29 @@ r2
 
 # Left window history (oldest to newest):
 d/home/neodebian
+	install.sh
+11
+d/home
+	neodebian
+1
+d/home/neodebian
+	.config
+2
+d/home/neodebian/.config
 	..
 0
+d/home/neodebian
+	pythonProject
+4
+d/home/neodebian/pythonProject
+	microblog
+1
+d/home/neodebian/pythonProject/microblog
+	app
+1
+d/home/neodebian/pythonProject/microblog/app
+	microblog.py
+1
 d
 
 # Right window history (oldest to newest):
@@ -51,15 +72,20 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
+""/home/neodebian/.local/share/vifm/Trash/000_qtile
 
 # Directory stack (oldest to newest):
 
 # Trash content:
+t/home/neodebian/.local/share/vifm/Trash/000_i3
+	/home/neodebian/.config/i3
+t/home/neodebian/.local/share/vifm/Trash/000_qtile
+	/home/neodebian/.config/qtile
 
 # State:
 f
 i1
-[.1
+[.0
 [F
 F
 I1
