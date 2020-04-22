@@ -1,0 +1,199 @@
+
+Prefixes:
+     xsd: http://www.w3.org/2001/XMLSchema
+     ns0: http://v2.webServices.web.squirel.horoquartz.amano.com/
+
+Global elements:
+     ns0:executeWorkflow(ns0:executeWorkflow)
+     ns0:executeWorkflowResponse(ns0:executeWorkflowResponse)
+     ns0:executeWorkflowWithParameters(ns0:executeWorkflowWithParameters)
+     ns0:executeWorkflowWithParametersResponse(ns0:executeWorkflowWithParametersResponse)
+     ns0:getAvailablesData(ns0:getAvailablesData)
+     ns0:getAvailablesDataForResourceType(ns0:getAvailablesDataForResourceType)
+     ns0:getAvailablesDataForResourceTypeResponse(ns0:getAvailablesDataForResourceTypeResponse)
+     ns0:getAvailablesDataResponse(ns0:getAvailablesDataResponse)
+     ns0:getAvailablesParameters(ns0:getAvailablesParameters)
+     ns0:getAvailablesParametersResponse(ns0:getAvailablesParametersResponse)
+     ns0:getAvailablesResourcesTypes(ns0:getAvailablesResourcesTypes)
+     ns0:getAvailablesResourcesTypesResponse(ns0:getAvailablesResourcesTypesResponse)
+     ns0:getDataType(ns0:getDataType)
+     ns0:getDataTypeResponse(ns0:getDataTypeResponse)
+     ns0:getDataValues(ns0:getDataValues)
+     ns0:getDataValuesForResourceType(ns0:getDataValuesForResourceType)
+     ns0:getDataValuesForResourceTypeResponse(ns0:getDataValuesForResourceTypeResponse)
+     ns0:getDataValuesResponse(ns0:getDataValuesResponse)
+     ns0:getLastExecutionExport(ns0:getLastExecutionExport)
+     ns0:getLastExecutionExportResponse(ns0:getLastExecutionExportResponse)
+     ns0:getLastExecutionImport(ns0:getLastExecutionImport)
+     ns0:getLastExecutionImportResponse(ns0:getLastExecutionImportResponse)
+     ns0:getLastExecutionTask(ns0:getLastExecutionTask)
+     ns0:getLastExecutionTaskResponse(ns0:getLastExecutionTaskResponse)
+     ns0:getOperators(ns0:getOperators)
+     ns0:getOperatorsResponse(ns0:getOperatorsResponse)
+     ns0:getPendingLinesToExport(ns0:getPendingLinesToExport)
+     ns0:getPendingLinesToExportResponse(ns0:getPendingLinesToExportResponse)
+     ns0:getWorkflows(ns0:getWorkflows)
+     ns0:getWorkflowsExecutions(ns0:getWorkflowsExecutions)
+     ns0:getWorkflowsExecutionsResponse(ns0:getWorkflowsExecutionsResponse)
+     ns0:getWorkflowsResponse(ns0:getWorkflowsResponse)
+     ns0:getWorkflowsStepExecutions(ns0:getWorkflowsStepExecutions)
+     ns0:getWorkflowsStepExecutionsResponse(ns0:getWorkflowsStepExecutionsResponse)
+     ns0:importCsvResource(ns0:importCsvResource)
+     ns0:importCsvResourceResponse(ns0:importCsvResourceResponse)
+     ns0:importCsvResources(ns0:importCsvResources)
+     ns0:importCsvResourcesResponse(ns0:importCsvResourcesResponse)
+     ns0:setDataValues(ns0:setDataValues)
+     ns0:setDataValuesForResourceType(ns0:setDataValuesForResourceType)
+     ns0:setDataValuesForResourceTypeResponse(ns0:setDataValuesForResourceTypeResponse)
+     ns0:setDataValuesResponse(ns0:setDataValuesResponse)
+     ns0:setNewStatusForBadge(ns0:setNewStatusForBadge)
+     ns0:setNewStatusForBadgeResponse(ns0:setNewStatusForBadgeResponse)
+     
+
+Global types:
+     xsd:anyType
+     ns0:dataType
+     ns0:executeWorkflow(username: xsd:string, password: xsd:string, workflowId: xsd:int, criteria: ns0:squirelCriterionBean[])
+     ns0:executeWorkflowResponse(return: ns0:squirelResponseBean)
+     ns0:executeWorkflowWithParameters(username: xsd:string, password: xsd:string, workflowId: xsd:int, criteria: ns0:squirelCriterionBean[], data: ns0:squirelDatumBean[])
+     ns0:executeWorkflowWithParametersResponse(return: ns0:squirelResponseBean)
+     ns0:executionObjectBean(endExecutionDate: xsd:dateTime, nbLinesExpected: xsd:int, nbLinesResult: xsd:int, startExecutionDate: xsd:dateTime, status: xsd:int, type: xsd:string)
+     ns0:getAvailablesData(username: xsd:string, password: xsd:string)
+     ns0:getAvailablesDataForResourceType(username: xsd:string, password: xsd:string, resourceTypeId: xsd:int)
+     ns0:getAvailablesDataForResourceTypeResponse(return: ns0:squirelGetDataResponseBean)
+     ns0:getAvailablesDataResponse(return: ns0:squirelGetDataResponseBean)
+     ns0:getAvailablesParameters(username: xsd:string, password: xsd:string)
+     ns0:getAvailablesParametersResponse(return: ns0:squirelGetParametersResponseBean)
+     ns0:getAvailablesResourcesTypes(username: xsd:string, password: xsd:string)
+     ns0:getAvailablesResourcesTypesResponse(return: ns0:squirelGetResourceTypeResponseBean)
+     ns0:getDataType(username: xsd:string, password: xsd:string)
+     ns0:getDataTypeResponse(return: ns0:squirelGetDataTypeResponseBean)
+     ns0:getDataValues(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], dataIds: xsd:int[])
+     ns0:getDataValuesForResourceType(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], dataIds: xsd:int[], resourceTypeId: xsd:int)
+     ns0:getDataValuesForResourceTypeResponse(return: ns0:squirelGetDataValuesResponseBean)
+     ns0:getDataValuesResponse(return: ns0:squirelGetDataValuesResponseBean)
+     ns0:getLastExecutionExport(username: xsd:string, password: xsd:string, exportId: xsd:int)
+     ns0:getLastExecutionExportResponse(return: ns0:squirelExecutionResponseBean)
+     ns0:getLastExecutionImport(username: xsd:string, password: xsd:string, importId: xsd:int)
+     ns0:getLastExecutionImportResponse(return: ns0:squirelExecutionResponseBean)
+     ns0:getLastExecutionTask(username: xsd:string, password: xsd:string, taskId: xsd:int)
+     ns0:getLastExecutionTaskResponse(return: ns0:squirelExecutionResponseBean)
+     ns0:getOperators(username: xsd:string, password: xsd:string)
+     ns0:getOperatorsResponse(return: ns0:squirelGetOperatorResponseBean)
+     ns0:getPendingLinesToExport(username: xsd:string, password: xsd:string, exportId: xsd:int, separator: xsd:string, addHeader: xsd:boolean)
+     ns0:getPendingLinesToExportResponse(return: ns0:squirelExportBean)
+     ns0:getWorkflows(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[])
+     ns0:getWorkflowsExecutions(username: xsd:string, password: xsd:string, workflowId: xsd:int, workflowExecutionStatus: xsd:int)
+     ns0:getWorkflowsExecutionsResponse(return: ns0:squirelGetWorkflowsExecutionsResponseBean)
+     ns0:getWorkflowsResponse(return: ns0:squirelGetWorkflowsResponseBean)
+     ns0:getWorkflowsStepExecutions(username: xsd:string, password: xsd:string, workflowExecutionId: xsd:int, stepIndex: xsd:int)
+     ns0:getWorkflowsStepExecutionsResponse(return: ns0:squirelGetWorkflowsStepExecutionsResponseBean)
+     ns0:importCsvResource(username: xsd:string, password: xsd:string, importId: xsd:int, importCsv: xsd:string, delimiter: xsd:string, separator: xsd:string)
+     ns0:importCsvResourceResponse(return: ns0:squirelResponseBean)
+     ns0:importCsvResources(username: xsd:string, password: xsd:string, importId: xsd:int, importCsv: xsd:string[], delimiter: xsd:string, separator: xsd:string)
+     ns0:importCsvResourcesResponse(return: ns0:squirelResponseBean)
+     ns0:setDataValues(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], data: ns0:squirelDatumBean[])
+     ns0:setDataValuesForResourceType(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], data: ns0:squirelDatumBean[], resourceTypeId: xsd:int)
+     ns0:setDataValuesForResourceTypeResponse(return: ns0:squirelResponseBean)
+     ns0:setDataValuesResponse(return: ns0:squirelResponseBean)
+     ns0:setNewStatusForBadge(username: xsd:string, password: xsd:string, personExternalRef: xsd:string, newStatusId: xsd:int, inCirculation: xsd:boolean, endDate: xsd:long)
+     ns0:setNewStatusForBadgeResponse(return: ns0:squirelResponseBean)
+     ns0:squirelCriterionBean(datumId: xsd:int, operator: xsd:int, valueMax: ns0:variant, valueMin: ns0:variant)
+     ns0:squirelDataTypeBean(id: xsd:int, label: xsd:string)
+     ns0:squirelDatumBean(id: xsd:int, label: xsd:string, type: xsd:int, value: ns0:variant)
+     ns0:squirelExecutionResponseBean(errorMessage: xsd:string, returnCode: xsd:int, executionObject: ns0:executionObjectBean[])
+     ns0:squirelExportBean(errorMessage: xsd:string, returnCode: xsd:int, exportedLines: xsd:string[])
+     ns0:squirelGetDataResponseBean(errorMessage: xsd:string, returnCode: xsd:int, data: ns0:squirelDatumBean[])
+     ns0:squirelGetDataTypeResponseBean(errorMessage: xsd:string, returnCode: xsd:int, dataType: ns0:squirelDataTypeBean[])
+     ns0:squirelGetDataValuesResponseBean(errorMessage: xsd:string, returnCode: xsd:int, resources: ns0:squirelResourceBean[])
+     ns0:squirelGetOperatorResponseBean(errorMessage: xsd:string, returnCode: xsd:int, operators: ns0:squirelOperatorBean[])
+     ns0:squirelGetParameterBean(id: xsd:int, label: xsd:string, type: xsd:int, value: ns0:variant)
+     ns0:squirelGetParametersResponseBean(errorMessage: xsd:string, returnCode: xsd:int, parameters: ns0:squirelGetParameterBean[])
+     ns0:squirelGetResourceTypeBean(id: xsd:int, label: xsd:string)
+     ns0:squirelGetResourceTypeResponseBean(errorMessage: xsd:string, returnCode: xsd:int, resourcesTypes: ns0:squirelGetResourceTypeBean[])
+     ns0:squirelGetWorkflowsExecutionsResponseBean(errorMessage: xsd:string, returnCode: xsd:int, workflowsExecutions: ns0:squirelWorkflowExecutionBean[])
+     ns0:squirelGetWorkflowsResponseBean(errorMessage: xsd:string, returnCode: xsd:int, workflows: ns0:squirelWorkflowBean[])
+     ns0:squirelGetWorkflowsStepExecutionsResponseBean(errorMessage: xsd:string, returnCode: xsd:int, stepIndex: xsd:int, workflowExecutionId: xsd:int, workflowsStepExecutions: ns0:squirelWorkflowStepExecutionBean[])
+     ns0:squirelOperatorBean(id: xsd:int, label: xsd:string)
+     ns0:squirelResourceBean(data: ns0:squirelDatumBean[], externalReference: xsd:string, id: xsd:int)
+     ns0:squirelResponseBean(errorMessage: xsd:string, returnCode: xsd:int)
+     ns0:squirelWorkflowBean(data: ns0:squirelDatumBean[], id: xsd:int, name: xsd:string)
+     ns0:squirelWorkflowExecutionBean(data: ns0:squirelDatumBean[], externalReference: xsd:string, id: xsd:int, initiatingPerson: ns0:squirelResourceBean, steps: ns0:squirelWorkflowStepExecutionBean[])
+     ns0:squirelWorkflowStepExecutionBean(comment: xsd:string, executionDate: xsd:dateTime, executor: ns0:squirelResourceBean, fields: ns0:squirelWorkflowStepExecutionFieldBean[], id: xsd:int, stepIndex: xsd:int, terminated: xsd:boolean)
+     ns0:squirelWorkflowStepExecutionFieldBean(datumId: xsd:int, fieldIndex: xsd:int, id: xsd:int, name: xsd:string, type: xsd:int, value: ns0:variant)
+     ns0:variant(booleanValue: xsd:boolean, dataType: ns0:dataType, dateValue: xsd:dateTime, doubleValue: xsd:double, imageValue: xsd:base64Binary, integerValue: xsd:long, stringValue: xsd:string)
+     xsd:ENTITIES
+     xsd:ENTITY
+     xsd:ID
+     xsd:IDREF
+     xsd:IDREFS
+     xsd:NCName
+     xsd:NMTOKEN
+     xsd:NMTOKENS
+     xsd:NOTATION
+     xsd:Name
+     xsd:QName
+     xsd:anySimpleType
+     xsd:anyURI
+     xsd:base64Binary
+     xsd:boolean
+     xsd:byte
+     xsd:date
+     xsd:dateTime
+     xsd:decimal
+     xsd:double
+     xsd:duration
+     xsd:float
+     xsd:gDay
+     xsd:gMonth
+     xsd:gMonthDay
+     xsd:gYear
+     xsd:gYearMonth
+     xsd:hexBinary
+     xsd:int
+     xsd:integer
+     xsd:language
+     xsd:long
+     xsd:negativeInteger
+     xsd:nonNegativeInteger
+     xsd:nonPositiveInteger
+     xsd:normalizedString
+     xsd:positiveInteger
+     xsd:short
+     xsd:string
+     xsd:time
+     xsd:token
+     xsd:unsignedByte
+     xsd:unsignedInt
+     xsd:unsignedLong
+     xsd:unsignedShort
+
+Bindings:
+     Soap11Binding: {http://v2.webServices.web.squirel.horoquartz.amano.com/}ExternalWebServiceV2ServiceSoapBinding
+
+Service: ExternalWebServiceV2Service
+     Port: ExternalWebServiceV2Port (Soap11Binding: {http://v2.webServices.web.squirel.horoquartz.amano.com/}ExternalWebServiceV2ServiceSoapBinding)
+         Operations:
+            executeWorkflow(username: xsd:string, password: xsd:string, workflowId: xsd:int, criteria: ns0:squirelCriterionBean[]) -> return: ns0:squirelResponseBean
+            executeWorkflowWithParameters(username: xsd:string, password: xsd:string, workflowId: xsd:int, criteria: ns0:squirelCriterionBean[], data: ns0:squirelDatumBean[]) -> return: ns0:squirelResponseBean
+            getAvailablesData(username: xsd:string, password: xsd:string) -> return: ns0:squirelGetDataResponseBean
+            getAvailablesDataForResourceType(username: xsd:string, password: xsd:string, resourceTypeId: xsd:int) -> return: ns0:squirelGetDataResponseBean
+            getAvailablesParameters(username: xsd:string, password: xsd:string) -> return: ns0:squirelGetParametersResponseBean
+            getAvailablesResourcesTypes(username: xsd:string, password: xsd:string) -> return: ns0:squirelGetResourceTypeResponseBean
+            getDataType(username: xsd:string, password: xsd:string) -> return: ns0:squirelGetDataTypeResponseBean
+            getDataValues(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], dataIds: xsd:int[]) -> return: ns0:squirelGetDataValuesResponseBean
+            getDataValuesForResourceType(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], dataIds: xsd:int[], resourceTypeId: xsd:int) -> return: ns0:squirelGetDataValuesResponseBean
+            getLastExecutionExport(username: xsd:string, password: xsd:string, exportId: xsd:int) -> return: ns0:squirelExecutionResponseBean
+            getLastExecutionImport(username: xsd:string, password: xsd:string, importId: xsd:int) -> return: ns0:squirelExecutionResponseBean
+            getLastExecutionTask(username: xsd:string, password: xsd:string, taskId: xsd:int) -> return: ns0:squirelExecutionResponseBean
+            getOperators(username: xsd:string, password: xsd:string) -> return: ns0:squirelGetOperatorResponseBean
+            getPendingLinesToExport(username: xsd:string, password: xsd:string, exportId: xsd:int, separator: xsd:string, addHeader: xsd:boolean) -> return: ns0:squirelExportBean
+            getWorkflows(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[]) -> return: ns0:squirelGetWorkflowsResponseBean
+            getWorkflowsExecutions(username: xsd:string, password: xsd:string, workflowId: xsd:int, workflowExecutionStatus: xsd:int) -> return: ns0:squirelGetWorkflowsExecutionsResponseBean
+            getWorkflowsStepExecutions(username: xsd:string, password: xsd:string, workflowExecutionId: xsd:int, stepIndex: xsd:int) -> return: ns0:squirelGetWorkflowsStepExecutionsResponseBean
+            importCsvResource(username: xsd:string, password: xsd:string, importId: xsd:int, importCsv: xsd:string, delimiter: xsd:string, separator: xsd:string) -> return: ns0:squirelResponseBean
+            importCsvResources(username: xsd:string, password: xsd:string, importId: xsd:int, importCsv: xsd:string[], delimiter: xsd:string, separator: xsd:string) -> return: ns0:squirelResponseBean
+            setDataValues(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], data: ns0:squirelDatumBean[]) -> return: ns0:squirelResponseBean
+            setDataValuesForResourceType(username: xsd:string, password: xsd:string, criteria: ns0:squirelCriterionBean[], data: ns0:squirelDatumBean[], resourceTypeId: xsd:int) -> return: ns0:squirelResponseBean
+            setNewStatusForBadge(username: xsd:string, password: xsd:string, personExternalRef: xsd:string, newStatusId: xsd:int, inCirculation: xsd:boolean, endDate: xsd:long) -> return: ns0:squirelResponseBean
+

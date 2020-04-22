@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ExternalWebServiceV2Service" targetNamespace="http://v2.webServices.web.squirel.horoquartz.amano.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://v2.webServices.web.squirel.horoquartz.amano.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://v2.webServices.web.squirel.horoquartz.amano.com/" elementFormDefault="unqualified" targetNamespace="http://v2.webServices.web.squirel.horoquartz.amano.com/" version="1.0">
+<xs:element name="executeWorkflow" type="tns:executeWorkflow"/>
+<xs:element name="executeWorkflowResponse" type="tns:executeWorkflowResponse"/>
+<xs:element name="executeWorkflowWithParameters" type="tns:executeWorkflowWithParameters"/>
+<xs:element name="executeWorkflowWithParametersResponse" type="tns:executeWorkflowWithParametersResponse"/>
+<xs:element name="getAvailablesData" type="tns:getAvailablesData"/>
+<xs:element name="getAvailablesDataForResourceType" type="tns:getAvailablesDataForResourceType"/>
+<xs:element name="getAvailablesDataForResourceTypeResponse" type="tns:getAvailablesDataForResourceTypeResponse"/>
+<xs:element name="getAvailablesDataResponse" type="tns:getAvailablesDataResponse"/>
+<xs:element name="getAvailablesParameters" type="tns:getAvailablesParameters"/>
+<xs:element name="getAvailablesParametersResponse" type="tns:getAvailablesParametersResponse"/>
+<xs:element name="getAvailablesResourcesTypes" type="tns:getAvailablesResourcesTypes"/>
+<xs:element name="getAvailablesResourcesTypesResponse" type="tns:getAvailablesResourcesTypesResponse"/>
+<xs:element name="getDataType" type="tns:getDataType"/>
+<xs:element name="getDataTypeResponse" type="tns:getDataTypeResponse"/>
+<xs:element name="getDataValues" type="tns:getDataValues"/>
+<xs:element name="getDataValuesForResourceType" type="tns:getDataValuesForResourceType"/>
+<xs:element name="getDataValuesForResourceTypeResponse" type="tns:getDataValuesForResourceTypeResponse"/>
+<xs:element name="getDataValuesResponse" type="tns:getDataValuesResponse"/>
+<xs:element name="getLastExecutionExport" type="tns:getLastExecutionExport"/>
+<xs:element name="getLastExecutionExportResponse" type="tns:getLastExecutionExportResponse"/>
+<xs:element name="getLastExecutionImport" type="tns:getLastExecutionImport"/>
+<xs:element name="getLastExecutionImportResponse" type="tns:getLastExecutionImportResponse"/>
+<xs:element name="getLastExecutionTask" type="tns:getLastExecutionTask"/>
+<xs:element name="getLastExecutionTaskResponse" type="tns:getLastExecutionTaskResponse"/>
+<xs:element name="getOperators" type="tns:getOperators"/>
+<xs:element name="getOperatorsResponse" type="tns:getOperatorsResponse"/>
+<xs:element name="getPendingLinesToExport" type="tns:getPendingLinesToExport"/>
+<xs:element name="getPendingLinesToExportResponse" type="tns:getPendingLinesToExportResponse"/>
+<xs:element name="getWorkflows" type="tns:getWorkflows"/>
+<xs:element name="getWorkflowsExecutions" type="tns:getWorkflowsExecutions"/>
+<xs:element name="getWorkflowsExecutionsResponse" type="tns:getWorkflowsExecutionsResponse"/>
+<xs:element name="getWorkflowsResponse" type="tns:getWorkflowsResponse"/>
+<xs:element name="getWorkflowsStepExecutions" type="tns:getWorkflowsStepExecutions"/>
+<xs:element name="getWorkflowsStepExecutionsResponse" type="tns:getWorkflowsStepExecutionsResponse"/>
+<xs:element name="importCsvResource" type="tns:importCsvResource"/>
+<xs:element name="importCsvResourceResponse" type="tns:importCsvResourceResponse"/>
+<xs:element name="importCsvResources" type="tns:importCsvResources"/>
+<xs:element name="importCsvResourcesResponse" type="tns:importCsvResourcesResponse"/>
+<xs:element name="setDataValues" type="tns:setDataValues"/>
+<xs:element name="setDataValuesForResourceType" type="tns:setDataValuesForResourceType"/>
+<xs:element name="setDataValuesForResourceTypeResponse" type="tns:setDataValuesForResourceTypeResponse"/>
+<xs:element name="setDataValuesResponse" type="tns:setDataValuesResponse"/>
+<xs:element name="setNewStatusForBadge" type="tns:setNewStatusForBadge"/>
+<xs:element name="setNewStatusForBadgeResponse" type="tns:setNewStatusForBadgeResponse"/>
+<xs:complexType name="getWorkflows">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:squirelCriterionBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelCriterionBean">
+<xs:sequence>
+<xs:element name="datumId" type="xs:int"/>
+<xs:element name="operator" type="xs:int"/>
+<xs:element minOccurs="0" name="valueMax" type="tns:variant"/>
+<xs:element minOccurs="0" name="valueMin" type="tns:variant"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="extension restriction" name="variant">
+<xs:sequence>
+<xs:element minOccurs="0" name="booleanValue" type="xs:boolean"/>
+<xs:element minOccurs="0" name="dataType" type="tns:dataType"/>
+<xs:element minOccurs="0" name="dateValue" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="doubleValue" type="xs:double"/>
+<xs:element minOccurs="0" name="imageValue" type="xs:base64Binary"/>
+<xs:element minOccurs="0" name="integerValue" type="xs:long"/>
+<xs:element minOccurs="0" name="stringValue" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getWorkflowsResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetWorkflowsResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetWorkflowsResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="workflows" nillable="true" type="tns:squirelWorkflowBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelResponseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+<xs:element name="returnCode" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelWorkflowBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="data" nillable="true" type="tns:squirelDatumBean"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelDatumBean">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="label" type="xs:string"/>
+<xs:element name="type" type="xs:int"/>
+<xs:element minOccurs="0" name="value" type="tns:variant"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setDataValues">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:squirelCriterionBean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="data" type="tns:squirelDatumBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setDataValuesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="importCsvResources">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="importId" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="importCsv" type="xs:string"/>
+<xs:element minOccurs="0" name="delimiter" type="xs:string"/>
+<xs:element minOccurs="0" name="separator" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="importCsvResourcesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDataValues">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:squirelCriterionBean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="dataIds" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDataValuesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetDataValuesResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetDataValuesResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="resources" nillable="true" type="tns:squirelResourceBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelResourceBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="data" nillable="true" type="tns:squirelDatumBean"/>
+<xs:element minOccurs="0" name="externalReference" type="xs:string"/>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLastExecutionExport">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="exportId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLastExecutionExportResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelExecutionResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelExecutionResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="executionObject" nillable="true" type="tns:executionObjectBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="executionObjectBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="endExecutionDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="nbLinesExpected" type="xs:int"/>
+<xs:element minOccurs="0" name="nbLinesResult" type="xs:int"/>
+<xs:element minOccurs="0" name="startExecutionDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="status" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesDataForResourceType">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="resourceTypeId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesDataForResourceTypeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetDataResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetDataResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="data" nillable="true" type="tns:squirelDatumBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="getWorkflowsExecutions">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="workflowId" type="xs:int"/>
+<xs:element name="workflowExecutionStatus" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getWorkflowsExecutionsResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetWorkflowsExecutionsResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetWorkflowsExecutionsResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="workflowsExecutions" nillable="true" type="tns:squirelWorkflowExecutionBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelWorkflowExecutionBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResourceBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="initiatingPerson" type="tns:squirelResourceBean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="steps" nillable="true" type="tns:squirelWorkflowStepExecutionBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelWorkflowStepExecutionBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="comment" type="xs:string"/>
+<xs:element minOccurs="0" name="executionDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="executor" type="tns:squirelResourceBean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fields" nillable="true" type="tns:squirelWorkflowStepExecutionFieldBean"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="stepIndex" type="xs:int"/>
+<xs:element name="terminated" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelWorkflowStepExecutionFieldBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="datumId" type="xs:int"/>
+<xs:element name="fieldIndex" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element name="type" type="xs:int"/>
+<xs:element minOccurs="0" name="value" type="tns:variant"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setDataValuesForResourceType">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:squirelCriterionBean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="data" type="tns:squirelDatumBean"/>
+<xs:element name="resourceTypeId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setDataValuesForResourceTypeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesData">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesDataResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetDataResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="importCsvResource">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="importId" type="xs:int"/>
+<xs:element minOccurs="0" name="importCsv" type="xs:string"/>
+<xs:element minOccurs="0" name="delimiter" type="xs:string"/>
+<xs:element minOccurs="0" name="separator" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="importCsvResourceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesResourcesTypes">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesResourcesTypesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetResourceTypeResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetResourceTypeResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="resourcesTypes" nillable="true" type="tns:squirelGetResourceTypeBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelGetResourceTypeBean">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="label" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="executeWorkflow">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element minOccurs="0" name="workflowId" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:squirelCriterionBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="executeWorkflowResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLastExecutionImport">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="importId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLastExecutionImportResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelExecutionResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setNewStatusForBadge">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element minOccurs="0" name="personExternalRef" type="xs:string"/>
+<xs:element name="newStatusId" type="xs:int"/>
+<xs:element name="inCirculation" type="xs:boolean"/>
+<xs:element minOccurs="0" name="endDate" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setNewStatusForBadgeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDataType">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDataTypeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetDataTypeResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetDataTypeResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="dataType" nillable="true" type="tns:squirelDataTypeBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelDataTypeBean">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="label" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDataValuesForResourceType">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:squirelCriterionBean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="dataIds" type="xs:int"/>
+<xs:element name="resourceTypeId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDataValuesForResourceTypeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetDataValuesResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getWorkflowsStepExecutions">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="workflowExecutionId" type="xs:int"/>
+<xs:element name="stepIndex" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getWorkflowsStepExecutionsResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetWorkflowsStepExecutionsResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetWorkflowsStepExecutionsResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element name="stepIndex" type="xs:int"/>
+<xs:element name="workflowExecutionId" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="workflowsStepExecutions" nillable="true" type="tns:squirelWorkflowStepExecutionBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="getLastExecutionTask">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="taskId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLastExecutionTaskResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelExecutionResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesParameters">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAvailablesParametersResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetParametersResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetParametersResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="parameters" nillable="true" type="tns:squirelGetParameterBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelGetParameterBean">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="label" type="xs:string"/>
+<xs:element name="type" type="xs:int"/>
+<xs:element minOccurs="0" name="value" type="tns:variant"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="executeWorkflowWithParameters">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element minOccurs="0" name="workflowId" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:squirelCriterionBean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="data" type="tns:squirelDatumBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="executeWorkflowWithParametersResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getOperators">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getOperatorsResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelGetOperatorResponseBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelGetOperatorResponseBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="operators" nillable="true" type="tns:squirelOperatorBean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="squirelOperatorBean">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="label" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getPendingLinesToExport">
+<xs:sequence>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element name="exportId" type="xs:int"/>
+<xs:element minOccurs="0" name="separator" type="xs:string"/>
+<xs:element name="addHeader" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getPendingLinesToExportResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:squirelExportBean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="squirelExportBean">
+<xs:complexContent>
+<xs:extension base="tns:squirelResponseBean">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="exportedLines" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:simpleType name="dataType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="STRING"/>
+<xs:enumeration value="INTEGER"/>
+<xs:enumeration value="DOUBLE"/>
+<xs:enumeration value="DATETIME"/>
+<xs:enumeration value="BOOLEAN"/>
+<xs:enumeration value="IMAGE"/>
+<xs:enumeration value="LOCALE"/>
+<xs:enumeration value="FILE"/>
+<xs:enumeration value="BEAN"/>
+<xs:enumeration value="ENUM"/>
+<xs:enumeration value="TRANSLATABLE"/>
+<xs:enumeration value="MAIL"/>
+<xs:enumeration value="USER_LOGIN"/>
+<xs:enumeration value="TIME"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getLastExecutionExport">
+    <wsdl:part name="parameters" element="tns:getLastExecutionExport">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="executeWorkflowWithParametersResponse">
+    <wsdl:part name="parameters" element="tns:executeWorkflowWithParametersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWorkflowsStepExecutions">
+    <wsdl:part name="parameters" element="tns:getWorkflowsStepExecutions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="importCsvResourceResponse">
+    <wsdl:part name="parameters" element="tns:importCsvResourceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="executeWorkflowWithParameters">
+    <wsdl:part name="parameters" element="tns:executeWorkflowWithParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWorkflowsStepExecutionsResponse">
+    <wsdl:part name="parameters" element="tns:getWorkflowsStepExecutionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="importCsvResource">
+    <wsdl:part name="parameters" element="tns:importCsvResource">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDataValuesResponse">
+    <wsdl:part name="parameters" element="tns:setDataValuesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastExecutionExportResponse">
+    <wsdl:part name="parameters" element="tns:getLastExecutionExportResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesResourcesTypesResponse">
+    <wsdl:part name="parameters" element="tns:getAvailablesResourcesTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDataValuesForResourceType">
+    <wsdl:part name="parameters" element="tns:setDataValuesForResourceType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastExecutionImportResponse">
+    <wsdl:part name="parameters" element="tns:getLastExecutionImportResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="importCsvResourcesResponse">
+    <wsdl:part name="parameters" element="tns:importCsvResourcesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDataValuesForResourceTypeResponse">
+    <wsdl:part name="parameters" element="tns:setDataValuesForResourceTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesParametersResponse">
+    <wsdl:part name="parameters" element="tns:getAvailablesParametersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastExecutionImport">
+    <wsdl:part name="parameters" element="tns:getLastExecutionImport">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataValuesResponse">
+    <wsdl:part name="parameters" element="tns:getDataValuesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOperatorsResponse">
+    <wsdl:part name="parameters" element="tns:getOperatorsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDataValues">
+    <wsdl:part name="parameters" element="tns:setDataValues">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWorkflowsExecutions">
+    <wsdl:part name="parameters" element="tns:getWorkflowsExecutions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataValues">
+    <wsdl:part name="parameters" element="tns:getDataValues">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="importCsvResources">
+    <wsdl:part name="parameters" element="tns:importCsvResources">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="executeWorkflow">
+    <wsdl:part name="parameters" element="tns:executeWorkflow">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPendingLinesToExport">
+    <wsdl:part name="parameters" element="tns:getPendingLinesToExport">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWorkflowsResponse">
+    <wsdl:part name="parameters" element="tns:getWorkflowsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPendingLinesToExportResponse">
+    <wsdl:part name="parameters" element="tns:getPendingLinesToExportResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWorkflows">
+    <wsdl:part name="parameters" element="tns:getWorkflows">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="executeWorkflowResponse">
+    <wsdl:part name="parameters" element="tns:executeWorkflowResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesDataForResourceTypeResponse">
+    <wsdl:part name="parameters" element="tns:getAvailablesDataForResourceTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesParameters">
+    <wsdl:part name="parameters" element="tns:getAvailablesParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesDataForResourceType">
+    <wsdl:part name="parameters" element="tns:getAvailablesDataForResourceType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setNewStatusForBadgeResponse">
+    <wsdl:part name="parameters" element="tns:setNewStatusForBadgeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataTypeResponse">
+    <wsdl:part name="parameters" element="tns:getDataTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setNewStatusForBadge">
+    <wsdl:part name="parameters" element="tns:setNewStatusForBadge">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastExecutionTaskResponse">
+    <wsdl:part name="parameters" element="tns:getLastExecutionTaskResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataType">
+    <wsdl:part name="parameters" element="tns:getDataType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOperators">
+    <wsdl:part name="parameters" element="tns:getOperators">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesDataResponse">
+    <wsdl:part name="parameters" element="tns:getAvailablesDataResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesResourcesTypes">
+    <wsdl:part name="parameters" element="tns:getAvailablesResourcesTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastExecutionTask">
+    <wsdl:part name="parameters" element="tns:getLastExecutionTask">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWorkflowsExecutionsResponse">
+    <wsdl:part name="parameters" element="tns:getWorkflowsExecutionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailablesData">
+    <wsdl:part name="parameters" element="tns:getAvailablesData">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataValuesForResourceTypeResponse">
+    <wsdl:part name="parameters" element="tns:getDataValuesForResourceTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataValuesForResourceType">
+    <wsdl:part name="parameters" element="tns:getDataValuesForResourceType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ExternalWebServiceV2">
+    <wsdl:operation name="getWorkflows">
+      <wsdl:input name="getWorkflows" message="tns:getWorkflows">
+    </wsdl:input>
+      <wsdl:output name="getWorkflowsResponse" message="tns:getWorkflowsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataValues">
+      <wsdl:input name="setDataValues" message="tns:setDataValues">
+    </wsdl:input>
+      <wsdl:output name="setDataValuesResponse" message="tns:setDataValuesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importCsvResources">
+      <wsdl:input name="importCsvResources" message="tns:importCsvResources">
+    </wsdl:input>
+      <wsdl:output name="importCsvResourcesResponse" message="tns:importCsvResourcesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataValues">
+      <wsdl:input name="getDataValues" message="tns:getDataValues">
+    </wsdl:input>
+      <wsdl:output name="getDataValuesResponse" message="tns:getDataValuesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastExecutionExport">
+      <wsdl:input name="getLastExecutionExport" message="tns:getLastExecutionExport">
+    </wsdl:input>
+      <wsdl:output name="getLastExecutionExportResponse" message="tns:getLastExecutionExportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesDataForResourceType">
+      <wsdl:input name="getAvailablesDataForResourceType" message="tns:getAvailablesDataForResourceType">
+    </wsdl:input>
+      <wsdl:output name="getAvailablesDataForResourceTypeResponse" message="tns:getAvailablesDataForResourceTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowsExecutions">
+      <wsdl:input name="getWorkflowsExecutions" message="tns:getWorkflowsExecutions">
+    </wsdl:input>
+      <wsdl:output name="getWorkflowsExecutionsResponse" message="tns:getWorkflowsExecutionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataValuesForResourceType">
+      <wsdl:input name="setDataValuesForResourceType" message="tns:setDataValuesForResourceType">
+    </wsdl:input>
+      <wsdl:output name="setDataValuesForResourceTypeResponse" message="tns:setDataValuesForResourceTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesData">
+      <wsdl:input name="getAvailablesData" message="tns:getAvailablesData">
+    </wsdl:input>
+      <wsdl:output name="getAvailablesDataResponse" message="tns:getAvailablesDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importCsvResource">
+      <wsdl:input name="importCsvResource" message="tns:importCsvResource">
+    </wsdl:input>
+      <wsdl:output name="importCsvResourceResponse" message="tns:importCsvResourceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesResourcesTypes">
+      <wsdl:input name="getAvailablesResourcesTypes" message="tns:getAvailablesResourcesTypes">
+    </wsdl:input>
+      <wsdl:output name="getAvailablesResourcesTypesResponse" message="tns:getAvailablesResourcesTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeWorkflow">
+      <wsdl:input name="executeWorkflow" message="tns:executeWorkflow">
+    </wsdl:input>
+      <wsdl:output name="executeWorkflowResponse" message="tns:executeWorkflowResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastExecutionImport">
+      <wsdl:input name="getLastExecutionImport" message="tns:getLastExecutionImport">
+    </wsdl:input>
+      <wsdl:output name="getLastExecutionImportResponse" message="tns:getLastExecutionImportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setNewStatusForBadge">
+      <wsdl:input name="setNewStatusForBadge" message="tns:setNewStatusForBadge">
+    </wsdl:input>
+      <wsdl:output name="setNewStatusForBadgeResponse" message="tns:setNewStatusForBadgeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataType">
+      <wsdl:input name="getDataType" message="tns:getDataType">
+    </wsdl:input>
+      <wsdl:output name="getDataTypeResponse" message="tns:getDataTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataValuesForResourceType">
+      <wsdl:input name="getDataValuesForResourceType" message="tns:getDataValuesForResourceType">
+    </wsdl:input>
+      <wsdl:output name="getDataValuesForResourceTypeResponse" message="tns:getDataValuesForResourceTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowsStepExecutions">
+      <wsdl:input name="getWorkflowsStepExecutions" message="tns:getWorkflowsStepExecutions">
+    </wsdl:input>
+      <wsdl:output name="getWorkflowsStepExecutionsResponse" message="tns:getWorkflowsStepExecutionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastExecutionTask">
+      <wsdl:input name="getLastExecutionTask" message="tns:getLastExecutionTask">
+    </wsdl:input>
+      <wsdl:output name="getLastExecutionTaskResponse" message="tns:getLastExecutionTaskResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesParameters">
+      <wsdl:input name="getAvailablesParameters" message="tns:getAvailablesParameters">
+    </wsdl:input>
+      <wsdl:output name="getAvailablesParametersResponse" message="tns:getAvailablesParametersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeWorkflowWithParameters">
+      <wsdl:input name="executeWorkflowWithParameters" message="tns:executeWorkflowWithParameters">
+    </wsdl:input>
+      <wsdl:output name="executeWorkflowWithParametersResponse" message="tns:executeWorkflowWithParametersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOperators">
+      <wsdl:input name="getOperators" message="tns:getOperators">
+    </wsdl:input>
+      <wsdl:output name="getOperatorsResponse" message="tns:getOperatorsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPendingLinesToExport">
+      <wsdl:input name="getPendingLinesToExport" message="tns:getPendingLinesToExport">
+    </wsdl:input>
+      <wsdl:output name="getPendingLinesToExportResponse" message="tns:getPendingLinesToExportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExternalWebServiceV2ServiceSoapBinding" type="tns:ExternalWebServiceV2">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getWorkflows">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getWorkflows">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getWorkflowsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataValues">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setDataValues">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setDataValuesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataValues">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDataValues">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDataValuesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importCsvResources">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="importCsvResources">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="importCsvResourcesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastExecutionExport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLastExecutionExport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLastExecutionExportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesDataForResourceType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAvailablesDataForResourceType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAvailablesDataForResourceTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowsExecutions">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getWorkflowsExecutions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getWorkflowsExecutionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataValuesForResourceType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setDataValuesForResourceType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setDataValuesForResourceTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAvailablesData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAvailablesDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importCsvResource">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="importCsvResource">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="importCsvResourceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesResourcesTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAvailablesResourcesTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAvailablesResourcesTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeWorkflow">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="executeWorkflow">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="executeWorkflowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastExecutionImport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLastExecutionImport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLastExecutionImportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setNewStatusForBadge">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setNewStatusForBadge">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setNewStatusForBadgeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDataType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDataTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataValuesForResourceType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDataValuesForResourceType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDataValuesForResourceTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowsStepExecutions">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getWorkflowsStepExecutions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getWorkflowsStepExecutionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastExecutionTask">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLastExecutionTask">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLastExecutionTaskResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeWorkflowWithParameters">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="executeWorkflowWithParameters">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="executeWorkflowWithParametersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailablesParameters">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAvailablesParameters">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAvailablesParametersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOperators">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOperators">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOperatorsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPendingLinesToExport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPendingLinesToExport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPendingLinesToExportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExternalWebServiceV2Service">
+    <wsdl:port name="ExternalWebServiceV2Port" binding="tns:ExternalWebServiceV2ServiceSoapBinding">
+      <soap:address location="http://localhost:9090/ExternalWebServiceV2Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
